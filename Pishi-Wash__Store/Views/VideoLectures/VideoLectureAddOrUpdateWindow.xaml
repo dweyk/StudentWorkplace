@@ -1,0 +1,34 @@
+﻿<Window x:Class="StudentWorkplace.Views.VideoLectures.VideoLectureAddOrUpdateWindow"
+        Title="Upload Video" Height="225" Width="400"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        DataContext="{Binding VideoLectureAddOrUpdateWindowViewModel, 
+                    Source={StaticResource ViewModelLocator}}">
+    <Grid Background="White">
+        <Image Source="/Resources/Image/background4.png" Stretch="UniformToFill" HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch" />
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Выбрать видео-лекцию для загрузки:" Margin="0 0 0 10" />
+
+            <Button Background="Blue" Foreground="White" BorderThickness="0" Content="Выбрать видео-лекцию" Command="{Binding SelectVideoCommand}" Grid.Row="1" />
+            <TextBlock Text="{Binding SelectedVideoPath, Mode=TwoWay}" Grid.Row="2" />
+
+            <Button Background="Blue" Foreground="White" BorderThickness="0" Content="Загрузить видео-лекцию" Command="{Binding UploadVideoCommand}" Grid.Row="3"/>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5, 15, 5, 5" >
+                <Button Background="Blue" Foreground="White" BorderThickness="0" Content="Закрыть" Command="{Binding CancelCommand}" Margin="5" MinWidth="200"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,97 @@
+﻿<Page x:Class="StudentWorkplace.Views.MainMenu.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      DataContext="{Binding MainMenuViewModel, 
+                    Source={StaticResource ViewModelLocator}}"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Страница входа">
+    <Grid>
+        <Image Source="/Resources/Image/background4.png" Stretch="UniformToFill" HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch" />
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Margin="5">
+                <StackPanel Orientation="Vertical">
+                    <Button x:Name="btnMySchedules"
+                            Margin="5"
+                            Command="{Binding OpenScheduleReadPageCommand}"
+                            Content="Мое расписание"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnMyReminders"
+                            Margin="5"
+                            Command="{Binding OpenReminderReadPageCommand}"
+                            Content="Мои напоминания"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnVideoLectures"
+                            Margin="5"
+                            Command="{Binding OpenLectureReadPageCommand}"
+                            Content="Лекции"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnLectures"
+                            Margin="5"
+                            Command="{Binding OpenVideoLectureViewingPageCommand}"
+                            Content="Видео-лекции"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnTesting"
+                            Margin="5"
+                            Command="{Binding OpenQuestionReadPageCommand}"
+                            Content="Тестирование" FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnLaboratoryWork"
+                            Margin="5"
+                            Command="{Binding OpenLaboratoryWorkPageCommand}"
+                            Content="Лабораторная работа" FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnStatistics"
+                            Margin="5"
+                            Content="Статистика пользователя"
+                            Command="{Binding OpenUserStatisticPageCommand}"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnLecturesCrudd"
+                            Margin="5"
+                            Command="{Binding OpenScheduleCrudPageCommand}"
+                            Content="Обновить расписание"
+                            Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}}"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnLecturesCrud"
+                            Margin="5"
+                            Command="{Binding OpenLecturesCrudPageCommand}"
+                            Content="Обновить лекции"
+                            Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}}"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnVideoLecturesCrud"
+                            Margin="5"
+                            Command="{Binding OpenVideoLecturesCrudPageCommand}"
+                            Content="Обновить видео-лекции"
+                            Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}}"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnQuestionsCrud"
+                            Margin="5"
+                            Command="{Binding OpenQuestionCrudPageCommand}"
+                            Content="Обновить вопросы"
+                            Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}}"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                    <Button x:Name="btnLoadStatistics"
+                            Margin="5"
+                            Command="{Binding LoadStatisticCommand}"
+                            Content="Выгрузить статистику пользователей"
+                            Visibility="{Binding UserRole, Converter={StaticResource RoleToVisibilityConverter}}"
+                            FontFamily="Times New Roman" Foreground="White" Background="Blue" Width="300">
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

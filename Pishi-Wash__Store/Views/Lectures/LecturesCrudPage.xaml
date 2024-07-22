@@ -1,0 +1,28 @@
+﻿<Page x:Class="StudentWorkplace.Views.Lectures.LecturesCrudPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="LecturesCrudPage"
+      d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding LecturesCrudViewModel, 
+                    Source={StaticResource ViewModelLocator}}">
+    <Grid>
+        <Image Source="\Resources\Image\background.png" Stretch="UniformToFill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <DataGrid ColumnWidth="*"
+                  ItemsSource="{Binding Lectures, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False"
+                  Margin="10,60,10,10"
+                  SelectedItem="{Binding SelectedLecture}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Заголовок лекции:" Binding="{Binding Title}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10">
+            <Button Background="Blue" Foreground="White" BorderThickness="0" Content="Добавить" Command="{Binding AddLectureCommand}" Margin="5"/>
+            <Button Background="Blue" Foreground="White" BorderThickness="0" Content="Изменить" Command="{Binding UpdateLectureCommand}" Margin="5"/>
+            <Button Background="Blue" Foreground="White" BorderThickness="0" Content="Удалить" Command="{Binding DeleteLectureCommand}" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Page>

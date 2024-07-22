@@ -1,0 +1,28 @@
+﻿<Page x:Class="StudentWorkplace.Views.Statistic.StatisticPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="LecturesCrudPage"
+      d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding StatisticViewingPageViewModel, 
+                    Source={StaticResource ViewModelLocator}}">
+    <Grid Background="White">
+        <Image Source="/Resources/Image/background4.png" Stretch="UniformToFill" HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch" />
+        <Grid>
+            <DataGrid ColumnWidth="*"
+                      ItemsSource="{Binding PassedQuestions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      AutoGenerateColumns="False"
+                      Margin="10,10,10,10"
+                      VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название теста:" Binding="{Binding TestTopic}"/>
+                    <DataGridTextColumn Header="Количество верных ответов:" Binding="{Binding NumberCorrectAnswers}"
+                                        Width="Auto" MinWidth="50"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Page>
